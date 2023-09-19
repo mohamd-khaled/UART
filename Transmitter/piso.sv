@@ -18,10 +18,10 @@ always_ff @(posedge rst, posedge clk) begin
         end
     else begin
         
-        if((send == 1) && (frame[0]==0) && (count != 8)) begin
+        if((send == 1) && (frame[0]==0) && (count != 11)) begin
             tx_active <=1;
             tx_done <=0;
-            data_out <= frame [count+1];
+            data_out <= frame [count];
             parity_out <= frame [9];
             count <= count + 1;
         end
